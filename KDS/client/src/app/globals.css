@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+body {
+    min-height: 100vh;
+    background-color: #000000;
+}
+img{
+    width: 100%;
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 4px;
+    background: #eeeeee;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #aaa;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #636363;
+}
+
+:root {
+    --offcanvas-width: 270px;
+    --topNavbarHeight: 0px;
+}
+.sidebar-nav {
+    width: var(--offcanvas-width);
+}
+.sidebar-link {
+    display: flex;
+    align-items: center;
+}
+.sidebar-link .right-icon {
+    display: inline-flex;
+}
+.sidebar-link[aria-expanded="true"] .right-icon {
+    transform: rotate(180deg);
+}
+
+.profile {
+    padding: 1rem;
+    text-align: center;
+
+}
+
+.profile p {
+    padding-top: 30px;
+}
+
+.img-circle{
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+.alt-logo {
+    max-width: 100%;
+    padding: 24px 24px 0;
+    text-align: center;
+}
+
+.alt-logo img {
+    width: 50%;
+}
+
+
+.last-threats-table {
+    display: block;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+
+.last-threats-table thead {
+    border-bottom: 1px solid #ddd;
+}
+
+
+.last-threats-table tbody td {
+    padding: 0.5rem 0.75rem 0.5rem 0;
+    width: 40%;
+}
+
+@media (min-width: 992px) {
+    body {
+        overflow: auto !important;
+    }
+    main {
+        margin-left: var(--offcanvas-width);
+    }
+    /* this is to remove the backdrop */
+    .offcanvas-backdrop::before {
+        display: none;
+    }
+    .sidebar-nav {
+        -webkit-transform: none;
+        transform: none;
+        visibility: visible !important;
+        height: calc(100% - var(--topNavbarHeight));
+        top: var(--topNavbarHeight);
+    }
+}
